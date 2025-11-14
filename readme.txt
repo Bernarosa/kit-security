@@ -101,7 +101,7 @@ Te recomendamos añadir tu IP personal, la IP de tu oficina, o cualquier IP desd
 == Changelog ==
 
 = 1.0.2 =
-* Fix: Corregido problema al desactivar opciones (checkboxes desmarcados ahora se guardan correctamente)
+* Fix: Corregido problema al guardar opciones por pestañas (ahora funciona correctamente activar/desactivar en cualquier pestaña)
 
 = 1.0.1 =
 * Fix: Corregido problema donde al guardar una pestaña se desactivaban las opciones de otras pestañas

@@ -82,7 +82,7 @@ _(Próximamente)_
 ## 📝 Changelog
 
 ### [1.0.2] - 2024-11-14
-- 🐛 **Fix**: Corregido problema al desactivar opciones (checkboxes desmarcados ahora se guardan correctamente)
+- 🐛 **Fix**: Corregido problema al guardar opciones por pestañas (ahora funciona correctamente activar/desactivar en cualquier pestaña)
 
 ### [1.0.1] - 2024-11-14
 - 🐛 **Fix**: Corregido problema donde al guardar una pestaña se desactivaban las opciones de otras pestañas

@@ -3,7 +3,7 @@
  * Plugin Name: Kit Security
  * Plugin URI: https://github.com/Bernarosa/kit-security
  * Description: Plugin de seguridad esencial para WordPress con funciones personalizables desde el panel de administración.
- * Version: 1.0.2
+* Version: 1.0.2
  * Author: Roberto Berná Larrosa
  * Author URI: https://github.com/Bernarosa
  * License: GPL v2 or later

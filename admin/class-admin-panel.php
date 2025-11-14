@@ -128,9 +128,9 @@ class Kit_Security_Admin_Panel {
             </nav>
             
             <form method="post" action="options.php">
-                <?php
+               <?php
                 settings_fields('kit_security_options');
-                <input type="hidden" name="kit_security_options[current_tab]" value="<?php echo esc_attr($active_tab); ?>">
+                echo '<input type="hidden" name="kit_security_options[current_tab]" value="' . esc_attr($active_tab) . '">';
                 
                 // Renderizar tab activa
                 switch ($active_tab) {

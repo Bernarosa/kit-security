@@ -8,7 +8,7 @@ y este proyecto se adhiere a [Semantic Versioning](https://semver.org/lang/es/).
 ## [1.0.2] - 2024-11-14
 
 ### Corregido
-- Problema al desactivar opciones (checkboxes desmarcados ahora se guardan correctamente)
+- Problema al guardar opciones por pestañas (ahora funciona correctamente activar/desactivar en cualquier pestaña)
 
 ## [1.0.1] - 2024-11-14
 
