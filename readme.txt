@@ -3,7 +3,7 @@ Contributors: robertoberna
 Tags: security, login, firewall, hardening, xmlrpc
 Requires at least: 5.0
 Tested up to: 6.4
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -99,6 +99,9 @@ Te recomendamos añadir tu IP personal, la IP de tu oficina, o cualquier IP desd
 4. Registro de intentos fallidos y IPs bloqueadas
 
 == Changelog ==
+
+= 1.0.2 =
+* Fix: Corregido problema al desactivar opciones (checkboxes desmarcados ahora se guardan correctamente)
 
 = 1.0.1 =
 * Fix: Corregido problema donde al guardar una pestaña se desactivaban las opciones de otras pestañas

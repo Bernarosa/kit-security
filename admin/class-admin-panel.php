@@ -511,78 +511,62 @@ class Kit_Security_Admin_Panel {
     /**
      * Sanitizar opciones
      */
-   public function sanitize_options($input) {
-    // Obtener las opciones actuales para mantener los valores que no se envían
+    /**
+ * Sanitizar opciones
+ */
+public function sanitize_options($input) {
+    // Obtener las opciones actuales
     $old_options = get_option('kit_security_options', array());
-    $sanitized = $old_options; // Partir de las opciones existentes
+    $sanitized = $old_options;
     
-    // Actualizar solo los valores que vienen en el input
+    // Detectar qué tab se está guardando
+    $current_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'general';
     
-    // Checkboxes - solo actualizar si existen en el input
-    if (isset($input['disable_comments'])) {
-        $sanitized['disable_comments'] = 1;
-    } elseif (array_key_exists('disable_comments', $input)) {
-        $sanitized['disable_comments'] = 0;
+    // Actualizar solo los campos de la tab actual
+    
+    // TAB GENERAL
+    if ($current_tab === 'general') {
+        $sanitized['disable_comments'] = isset($input['disable_comments']) ? 1 : 0;
+        $sanitized['disable_xmlrpc'] = isset($input['disable_xmlrpc']) ? 1 : 0;
     }
     
-    if (isset($input['enable_login_security'])) {
-        $sanitized['enable_login_security'] = 1;
-    } elseif (array_key_exists('enable_login_security', $input)) {
-        $sanitized['enable_login_security'] = 0;
+    // TAB LOGIN
+    if ($current_tab === 'login') {
+        $sanitized['enable_login_security'] = isset($input['enable_login_security']) ? 1 : 0;
+        $sanitized['enable_custom_login_url'] = isset($input['enable_custom_login_url']) ? 1 : 0;
+        
+        if (isset($input['login_max_attempts'])) {
+            $sanitized['login_max_attempts'] = absint($input['login_max_attempts']);
+        }
+        
+        if (isset($input['login_lockout_duration'])) {
+            $sanitized['login_lockout_duration'] = absint($input['login_lockout_duration']);
+        }
+        
+        if (isset($input['login_notification_email'])) {
+            $sanitized['login_notification_email'] = sanitize_email($input['login_notification_email']);
+        }
+        
+        if (isset($input['custom_login_slug'])) {
+            $sanitized['custom_login_slug'] = sanitize_title($input['custom_login_slug']);
+        }
+        
+        if (isset($input['ip_whitelist'])) {
+            $sanitized['ip_whitelist'] = sanitize_textarea_field($input['ip_whitelist']);
+        }
+        
+        // Si se cambió el slug de login, flush rewrite rules
+        if (isset($input['custom_login_slug']) && 
+            isset($old_options['custom_login_slug']) && 
+            $old_options['custom_login_slug'] !== $sanitized['custom_login_slug']) {
+            flush_rewrite_rules();
+        }
     }
     
-    if (isset($input['enable_custom_login_url'])) {
-        $sanitized['enable_custom_login_url'] = 1;
-    } elseif (array_key_exists('enable_custom_login_url', $input)) {
-        $sanitized['enable_custom_login_url'] = 0;
-    }
-    
-    if (isset($input['disable_xmlrpc'])) {
-        $sanitized['disable_xmlrpc'] = 1;
-    } elseif (array_key_exists('disable_xmlrpc', $input)) {
-        $sanitized['disable_xmlrpc'] = 0;
-    }
-    
-    if (isset($input['enable_wp_hardening'])) {
-        $sanitized['enable_wp_hardening'] = 1;
-    } elseif (array_key_exists('enable_wp_hardening', $input)) {
-        $sanitized['enable_wp_hardening'] = 0;
-    }
-    
-    if (isset($input['enable_security_headers'])) {
-        $sanitized['enable_security_headers'] = 1;
-    } elseif (array_key_exists('enable_security_headers', $input)) {
-        $sanitized['enable_security_headers'] = 0;
-    }
-    
-    // Números - solo actualizar si vienen en el input
-    if (isset($input['login_max_attempts'])) {
-        $sanitized['login_max_attempts'] = absint($input['login_max_attempts']);
-    }
-    
-    if (isset($input['login_lockout_duration'])) {
-        $sanitized['login_lockout_duration'] = absint($input['login_lockout_duration']);
-    }
-    
-    // Email - solo actualizar si viene en el input
-    if (isset($input['login_notification_email'])) {
-        $sanitized['login_notification_email'] = sanitize_email($input['login_notification_email']);
-    }
-    
-    // Texto - solo actualizar si viene en el input
-    if (isset($input['custom_login_slug'])) {
-        $sanitized['custom_login_slug'] = sanitize_title($input['custom_login_slug']);
-    }
-    
-    if (isset($input['ip_whitelist'])) {
-        $sanitized['ip_whitelist'] = sanitize_textarea_field($input['ip_whitelist']);
-    }
-    
-    // Si se cambió el slug de login, flush rewrite rules
-    if (isset($input['custom_login_slug']) && 
-        isset($old_options['custom_login_slug']) && 
-        $old_options['custom_login_slug'] !== $sanitized['custom_login_slug']) {
-        flush_rewrite_rules();
+    // TAB HARDENING
+    if ($current_tab === 'hardening') {
+        $sanitized['enable_wp_hardening'] = isset($input['enable_wp_hardening']) ? 1 : 0;
+        $sanitized['enable_security_headers'] = isset($input['enable_security_headers']) ? 1 : 0;
     }
     
     return $sanitized;

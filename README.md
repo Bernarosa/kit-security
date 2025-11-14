@@ -1,6 +1,6 @@
 # 🛡️ Kit Security
 
-![Version](https://img.shields.io/badge/version-1.0.1-blue.svg)
+![Version](https://img.shields.io/badge/version-1.0.2-blue.svg)
 ![WordPress](https://img.shields.io/badge/wordpress-5.0%2B-blue.svg)
 ![PHP](https://img.shields.io/badge/php-7.4%2B-purple.svg)
 ![License](https://img.shields.io/badge/license-GPL%20v2-green.svg)
@@ -80,6 +80,9 @@ _(Próximamente)_
 - MySQL 5.6 o superior
 
 ## 📝 Changelog
+
+### [1.0.2] - 2024-11-14
+- 🐛 **Fix**: Corregido problema al desactivar opciones (checkboxes desmarcados ahora se guardan correctamente)
 
 ### [1.0.1] - 2024-11-14
 - 🐛 **Fix**: Corregido problema donde al guardar una pestaña se desactivaban las opciones de otras pestañas
