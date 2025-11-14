@@ -1,0 +1,293 @@
+/**
+ * Estilos para el panel de administración de Kit Security
+ * 
+ * @package Kit_Security
+ * @author Roberto Berná Larrosa
+ */
+
+/* Contenedor principal */
+.kit-security-wrap {
+    background: #fff;
+    margin: 20px 20px 20px 0;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.kit-security-wrap h1 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.kit-security-wrap h1 .dashicons {
+    font-size: 32px;
+    width: 32px;
+    height: 32px;
+    color: #2271b1;
+}
+
+.kit-security-subtitle {
+    color: #646970;
+    font-size: 14px;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+/* Tabs */
+.nav-tab-wrapper {
+    margin-bottom: 30px;
+    border-bottom: 1px solid #c3c4c7;
+}
+
+.nav-tab {
+    font-weight: 500;
+}
+
+.nav-tab-active {
+    background: #fff;
+    border-bottom: 1px solid #fff;
+}
+
+/* Contenido de tabs */
+.kit-security-tab-content {
+    padding: 20px 0;
+}
+
+.kit-security-tab-content h2 {
+    margin-top: 0;
+    padding-top: 0;
+    border-bottom: 1px solid #e5e5e5;
+    padding-bottom: 10px;
+}
+
+/* Switch toggle personalizado */
+.kit-security-switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+}
+
+.kit-security-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.kit-security-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.3s;
+    border-radius: 24px;
+}
+
+.kit-security-slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: 0.3s;
+    border-radius: 50%;
+}
+
+input:checked + .kit-security-slider {
+    background-color: #2271b1;
+}
+
+input:focus + .kit-security-slider {
+    box-shadow: 0 0 1px #2271b1;
+}
+
+input:checked + .kit-security-slider:before {
+    transform: translateX(26px);
+}
+
+/* Tabla de formulario */
+.form-table th {
+    padding: 20px 10px 20px 0;
+    vertical-align: middle;
+}
+
+.form-table td {
+    padding: 20px 10px;
+}
+
+.form-table .description {
+    margin-top: 8px;
+    margin-bottom: 0;
+    color: #646970;
+}
+
+/* Info box */
+.kit-security-info-box {
+    background: #f0f6fc;
+    border-left: 4px solid #2271b1;
+    padding: 20px;
+    margin: 30px 0;
+    border-radius: 4px;
+}
+
+.kit-security-info-box h3 {
+    margin-top: 0;
+    color: #2271b1;
+}
+
+.kit-security-info-box ul {
+    margin: 10px 0;
+    padding-left: 20px;
+}
+
+.kit-security-info-box ul li {
+    margin-bottom: 8px;
+    color: #1d2327;
+}
+
+/* Logs */
+.kit-security-logs-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.kit-security-logs-header h2 {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+.kit-security-blocked {
+    color: #d63638;
+    font-weight: 600;
+}
+
+.kit-security-not-blocked {
+    color: #00a32a;
+}
+
+/* Tabla de logs */
+.wp-list-table code {
+    background: #f0f0f1;
+    padding: 3px 6px;
+    border-radius: 3px;
+    font-size: 12px;
+}
+
+/* Footer */
+.kit-security-footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #e5e5e5;
+    text-align: center;
+    color: #646970;
+}
+
+.kit-security-footer a {
+    color: #2271b1;
+    text-decoration: none;
+}
+
+.kit-security-footer a:hover {
+    text-decoration: underline;
+}
+
+/* Botón de submit */
+.submit {
+    padding-top: 20px;
+    border-top: 1px solid #e5e5e5;
+    margin-top: 30px;
+}
+
+/* Inputs */
+input[type="text"].regular-text,
+input[type="email"].regular-text,
+textarea.large-text {
+    border-color: #8c8f94;
+}
+
+input[type="text"].regular-text:focus,
+input[type="email"].regular-text:focus,
+textarea.large-text:focus {
+    border-color: #2271b1;
+    box-shadow: 0 0 0 1px #2271b1;
+    outline: none;
+}
+
+/* Alert messages */
+.notice {
+    margin: 20px 0;
+}
+
+/* Responsive */
+@media screen and (max-width: 782px) {
+    .kit-security-wrap {
+        margin: 10px 10px 10px 0;
+        padding: 20px;
+    }
+    
+    .kit-security-logs-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    
+    .form-table th,
+    .form-table td {
+        display: block;
+        width: 100%;
+        padding: 10px 0;
+    }
+    
+    .form-table th {
+        padding-bottom: 5px;
+    }
+}
+
+/* Loading spinner para AJAX */
+.kit-security-loading {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #f3f3f3;
+    border-top: 2px solid #2271b1;
+    border-radius: 50%;
+    animation: kit-security-spin 1s linear infinite;
+    margin-left: 10px;
+    vertical-align: middle;
+}
+
+@keyframes kit-security-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Estados de botones */
+.button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Código inline */
+code {
+    background: #f0f0f1;
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-size: 13px;
+}
+
+/* Mejora visual para textareas */
+textarea.code {
+    font-family: Monaco, Consolas, "Courier New", monospace;
+    line-height: 1.6;
+}
