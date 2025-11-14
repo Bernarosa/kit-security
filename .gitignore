@@ -1,0 +1,52 @@
+# .gitignore para Kit Security
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDEs y editores
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+error_log
+debug.log
+
+# Archivos temporales
+*.tmp
+*.temp
+*.cache
+
+# Node modules (si usas npm en el futuro)
+node_modules/
+package-lock.json
+
+# Composer (si usas composer en el futuro)
+vendor/
+composer.lock
+
+# WordPress
+wp-config.php
+.htaccess
+
+# Archivos de backup
+*.bak
+*.backup
+*~
+
+# Archivos comprimidos
+*.zip
+*.tar
+*.tar.gz
+*.rar
+
+# Variables de entorno
+.env
+.env.local
