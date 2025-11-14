@@ -1,6 +1,6 @@
 # 🛡️ Kit Security
 
-![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)
+![Version](https://img.shields.io/badge/version-1.0.1-blue.svg)
 ![WordPress](https://img.shields.io/badge/wordpress-5.0%2B-blue.svg)
 ![PHP](https://img.shields.io/badge/php-7.4%2B-purple.svg)
 ![License](https://img.shields.io/badge/license-GPL%20v2-green.svg)
@@ -81,7 +81,10 @@ _(Próximamente)_
 
 ## 📝 Changelog
 
-### [1.0.0] - 2024-XX-XX
+### [1.0.1] - 2024-11-14
+- 🐛 **Fix**: Corregido problema donde al guardar una pestaña se desactivaban las opciones de otras pestañas
+
+### [1.0.0] - 2024-11-14
 - 🎉 Lanzamiento inicial
 - Desactivar comentarios
 - Bloqueo de intentos de login
@@ -128,4 +131,4 @@ Este proyecto está bajo la Licencia GPL v2 o posterior. Ver el archivo [LICENSE
 
 ---
 
-Hecho por Roberto Berná Larrosa
+Hecho con ❤️ por Roberto Berná Larrosa
